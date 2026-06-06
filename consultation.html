@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Schedule a Free Consultation | Sysclaude Solutions</title>
+
+    <meta name="description" content="Schedule a free consultation with Sysclaude Solutions. Get expert advice on enterprise networking, cybersecurity, cloud solutions, web & mobile app development and IT training in Sri Lanka." />
+    <meta name="robots" content="index, follow" />
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://www.sysclaude.com/consultation.html" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consultation.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none';" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sysclaude.com/consultation.html" />
+    <meta property="og:title" content="Schedule a Free Consultation | Sysclaude Solutions" />
+    <meta property="og:description" content="Connect with Sysclaude Solutions experts and explore IT solutions tailored to your organization's needs." />
+    <meta property="og:image" content="https://www.sysclaude.com/Sysclaude-Logo PNG-Crop.png" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script defer>
+
+        // ================= EMAILJS CONFIGURATION =================
+
+        const EMAILJS_SERVICE_ID  = "service_9lr60cr";
+        const EMAILJS_TEMPLATE_ID = "template_hmwo7fk";
+        const EMAILJS_PUBLIC_KEY  = "-YxyYKYqieCaXAa55";
+
+        // ================= ALLOWED ORIGIN PROTECTION =================
+
+        (function guardOrigin() {
+            const allowed = ["sysclaude.com", "www.sysclaude.com"];
+            const host    = window.location.hostname.toLowerCase();
+            if (host === "localhost" || host === "127.0.0.1" || host === "") return;
+            if (!allowed.includes(host)) {
+                window.submitConsultation = function(e) {
+                    e && e.preventDefault();
+                };
+            }
+        })();
+
+        window.onload = function() {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+        };
+
+        // ================= MOBILE MENU TOGGLE =================
+
+        function toggleMenu() {
+            const menu        = document.getElementById("mobileNav");
+            const navRight    = document.querySelector(".nav-right");
+            const headerInner = document.querySelector(".header-inner");
+
+            menu.classList.toggle("mobile-open");
+
+            if (window.innerWidth <= 768) {
+                if (menu.classList.contains("mobile-open")) {
+                    if (navRight && !menu.contains(navRight)) { menu.appendChild(navRight); }
+                } else {
+                    if (navRight && menu.contains(navRight)) { headerInner.appendChild(navRight); }
+                }
+            }
+        }
+
+        // ================= CLOSE MOBILE MENU =================
+
+        function closeMobileMenu() {
+            const menu        = document.getElementById("mobileNav");
+            const navRight    = document.querySelector(".nav-right");
+            const headerInner = document.querySelector(".header-inner");
+            if (!menu) return;
+            menu.classList.remove("mobile-open");
+            if (navRight && menu.contains(navRight)) {
+                headerInner.appendChild(navRight);
+            }
+        }
+
+        // ================= MOBILE NAV CLICK HANDLER =================
+        // On consultation.html all nav links are page.html#hash style.
+        // We close the menu then let the browser navigate normally —
+        // no preventDefault, so the link works as expected.
+
+        function initMobileNav() {
+            document.addEventListener("click", function (e) {
+                if (window.innerWidth > 768) return;
+
+                // Walk up from tap target to find nearest <a>
+                const link = e.target.closest("a");
+                if (!link) return;
+
+                const href = link.getAttribute("href") || "";
+                if (!href) return;
+
+                // Always close the menu
+                closeMobileMenu();
+
+                // Pure hash link — same-page scroll with header offset
+                if (href.startsWith("#")) {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        setTimeout(() => {
+                            const header  = document.querySelector("header");
+                            const headerH = header ? header.offsetHeight : 80;
+                            const top     = targetEl.getBoundingClientRect().top + window.pageYOffset - headerH;
+                            window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+                        }, 250);
+                    }
+                    return;
+                }
+
+                // page.html or page.html#hash — let browser navigate normally (no preventDefault)
+            });
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initMobileNav);
+        } else {
+            initMobileNav();
+        }
+
+        // ================= BASIC CONTENT PROTECTION =================
+
+        document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+        document.addEventListener("dragstart",   function (e) { e.preventDefault(); });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && (e.key === "u" || e.key === "s" || e.key === "p")) {
+                e.preventDefault();
+            }
+            if (e.key === "F12") { e.preventDefault(); }
+        });
+
+        // ================= RATE LIMIT (client-side guard) =================
+
+        let lastSubmitTime = 0;
+        const SUBMIT_COOLDOWN_MS = 15000;
+
+        // ================= INPUT SANITIZER =================
+
+        function sanitizeInput(str) {
+            if (typeof str !== 'string') return '';
+            return str
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#x27;')
+                .replace(/\//g, '&#x2F;')
+                .trim();
+        }
+
+        // ================= CONSULTATION FORM SUBMIT =================
+
+        async function submitConsultation(e) {
+            e.preventDefault();
+
+            const now = Date.now();
+            if (now - lastSubmitTime < SUBMIT_COOLDOWN_MS) {
+                showFormMsg("error", "Please wait a moment before submitting again.");
+                return;
+            }
+
+            const btn     = document.getElementById("scheduleBtn");
+            const btnText = document.getElementById("scheduleBtnText");
+
+            const fullName = sanitizeInput(document.getElementById("cf_name").value);
+            const company  = sanitizeInput(document.getElementById("cf_company").value);
+            const email    = sanitizeInput(document.getElementById("cf_email").value);
+            const phone    = sanitizeInput(document.getElementById("cf_phone").value);
+            const service  = sanitizeInput(document.getElementById("cf_service").value);
+            const message  = sanitizeInput(document.getElementById("cf_message").value);
+
+            if (!fullName || !email || !phone || !service || !message) {
+                showFormMsg("error", "Please fill in all required fields.");
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showFormMsg("error", "Please enter a valid email address.");
+                return;
+            }
+
+            const phoneRegex = /^[\d\s\+\-\(\)]{7,20}$/;
+            if (!phoneRegex.test(phone)) {
+                showFormMsg("error", "Please enter a valid phone number.");
+                return;
+            }
+
+            btn.disabled        = true;
+            btnText.textContent = "Sending...";
+
+            try {
+                await emailjs.send(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    {
+                        from_name  : fullName,
+                        company    : company || "N/A",
+                        from_email : email,
+                        phone      : phone,
+                        service    : service,
+                        message    : message,
+                        reply_to   : email
+                    }
+                );
+
+                lastSubmitTime = Date.now();
+                showSuccessMessage();
+
+            } catch (err) {
+                console.error("EmailJS error:", err);
+                showFormMsg("error", "Something went wrong. Please try again or email us at hello@sysclaude.com");
+            }
+
+            btn.disabled        = false;
+            btnText.textContent = "Schedule a Consultation";
+        }
+
+        function showSuccessMessage() {
+            const form       = document.getElementById("consultationForm");
+            const successMsg = document.getElementById("formSuccessMsg");
+            const panel      = document.querySelector(".consult-form-panel");
+
+            const panelTop = panel ? panel.getBoundingClientRect().top + window.scrollY : 0;
+
+            form.style.display       = "none";
+            successMsg.style.display = "flex";
+
+            if (window.innerWidth <= 860) {
+                window.scrollTo({
+                    top: panelTop - 100,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        function showFormMsg(type, text) {
+            const el         = document.getElementById("formInlineMsg");
+            el.className     = "form-inline-msg " + type;
+            el.textContent   = text;
+            el.style.display = "block";
+            el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            setTimeout(() => { el.style.display = "none"; }, 5000);
+        }
+
+        function resetConsultationForm() {
+            document.getElementById("consultationForm").reset();
+            document.getElementById("consultationForm").style.display = "";
+            document.getElementById("formSuccessMsg").style.display   = "none";
+        }
+
+    </script>
+
+</head>
+
+<body class="consultation-page">
+
+    <header>
+        <div class="header-inner">
+            <!-- LOGO -->
+            <div class="brand">
+                <a href="index.html">
+                    <img src="Sysclaude-Logo PNG-Crop.png" alt="Sysclaude Solutions Logo" class="company-logo">
+                </a>
+            </div>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-center" id="mobileNav" aria-label="Main navigation">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#why-choose">Why Us</a>
+                <div class="nav-services-wrapper">
+                    <a href="index.html#services" class="nav-services-link">
+                        Services <i class="fas fa-chevron-down nav-services-chevron"></i>
+                    </a>
+                    <div class="services-dropdown">
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-network-wired"></i>
+                            Network Design &amp; Implementation
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-shield-alt"></i>
+                            Cybersecurity Solutions
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-cloud"></i>
+                            Cloud Solutions
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-server"></i>
+                            Server &amp; Infrastructure
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-code"></i>
+                            Web Development
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            Mobile App Development
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-laptop-code"></i>
+                            IT Training &amp; Academy
+                        </a>
+                        <a href="index.html#services" class="dropdown-item">
+                            <i class="fas fa-headset"></i>
+                            IT Support Services
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+
+            <!-- DESKTOP GET STARTED BUTTON -->
+            <div class="nav-right">
+                <button class="get-started-cta" onclick="window.location.href='consultation.html'">
+                    <i class="fas fa-rocket"></i>
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO STRIP -->
+    <div class="consult-hero-strip">
+        <div class="consult-hero-inner">
+            <p class="consult-breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> Schedule a Consultation</p>
+            <h1>Schedule a Free Consultation</h1>
+            <p class="consult-hero-sub">Connect with our experts and explore solutions tailored to your organization's needs.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONSULTATION CONTENT -->
+    <main class="consult-main">
+        <div class="consult-layout">
+
+            <!-- LEFT INFO PANEL -->
+            <aside class="consult-aside">
+                <div class="consult-aside-inner">
+
+                    <div class="modal-brand-logo">
+                        <img src="Sysclaude-Logo PNG-Crop.png" alt="Sysclaude Solutions" onerror="this.style.display='none'">
+                    </div>
+
+                    <h2>Start Your Digital Transformation Journey</h2>
+                    <p class="modal-tagline">Technology Solutions That Drive Business Growth</p>
+
+                    <p class="modal-desc">
+                        At Sysclaude Solutions, we help organizations embrace innovation, optimize operations, and build future-ready technology environments — from enterprise networks and cybersecurity to custom web &amp; mobile applications.
+                    </p>
+
+                    <div class="modal-divider"></div>
+
+                    <div class="modal-how">
+                        <h4><i class="fas fa-check-double"></i> How We Can Help</h4>
+                        <ul>
+                            <li><i class="fas fa-angle-right"></i> Modernize your IT infrastructure</li>
+                            <li><i class="fas fa-angle-right"></i> Strengthen cybersecurity and data protection</li>
+                            <li><i class="fas fa-angle-right"></i> Improve network performance and reliability</li>
+                            <li><i class="fas fa-angle-right"></i> Build custom websites and web applications</li>
+                            <li><i class="fas fa-angle-right"></i> Develop Android &amp; iOS mobile apps</li>
+                            <li><i class="fas fa-angle-right"></i> Upskill teams through professional IT training</li>
+                            <li><i class="fas fa-angle-right"></i> Enable cloud adoption and digital transformation</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-trust">
+                        <div class="modal-trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Trusted Technology Partner</span>
+                        </div>
+                        <p>Our mission is to provide practical, scalable, and cost-effective technology solutions that help businesses improve productivity, security, and long-term success.</p>
+                    </div>
+
+                    <div class="modal-stats">
+                        <div class="modal-stat">
+                            <span class="modal-stat-num">24/7</span>
+                            <span class="modal-stat-label">Support</span>
+                        </div>
+                        <div class="modal-stat-divider"></div>
+                        <div class="modal-stat">
+                            <span class="modal-stat-num">100%</span>
+                            <span class="modal-stat-label">Confidential</span>
+                        </div>
+                        <div class="modal-stat-divider"></div>
+                        <div class="modal-stat">
+                            <span class="modal-stat-num">Free</span>
+                            <span class="modal-stat-label">Consultation</span>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- RIGHT FORM PANEL -->
+            <div class="consult-form-panel">
+
+                <div class="consult-form-header">
+                    <h3>Tell Us About Your Needs</h3>
+                    <p class="modal-form-subtitle">Fill in your details and we'll get back to you within 24 hours.</p>
+                </div>
+
+                <div id="formInlineMsg" class="form-inline-msg" style="display:none;"></div>
+
+                <form id="consultationForm" onsubmit="submitConsultation(event)" novalidate autocomplete="off">
+
+                    <div class="cf-section-label">Personal Information</div>
+
+                    <div class="cf-field">
+                        <label for="cf_name">Full Name <span class="cf-required">*</span></label>
+                        <div class="cf-input-wrap">
+                            <i class="fas fa-user cf-icon"></i>
+                            <input type="text" id="cf_name" name="full_name" placeholder="Your full name" required maxlength="100" autocomplete="name">
+                        </div>
+                    </div>
+
+                    <div class="cf-field">
+                        <label for="cf_company">Company Name <span class="cf-optional">(Optional)</span></label>
+                        <div class="cf-input-wrap">
+                            <i class="fas fa-building cf-icon"></i>
+                            <input type="text" id="cf_company" name="company" placeholder="Your company or organization" maxlength="150" autocomplete="organization">
+                        </div>
+                    </div>
+
+                    <div class="cf-row">
+                        <div class="cf-field">
+                            <label for="cf_email">Email Address <span class="cf-required">*</span></label>
+                            <div class="cf-input-wrap">
+                                <i class="fas fa-envelope cf-icon"></i>
+                                <input type="email" id="cf_email" name="email" placeholder="you@company.com" required maxlength="100" autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="cf-field">
+                            <label for="cf_phone">Phone Number <span class="cf-required">*</span></label>
+                            <div class="cf-input-wrap">
+                                <i class="fas fa-phone cf-icon"></i>
+                                <input type="tel" id="cf_phone" name="phone" placeholder="+94 xx xxx xxxx" required maxlength="20" autocomplete="tel">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf-section-label">Service Details</div>
+
+                    <div class="cf-field">
+                        <label for="cf_service">Service Required <span class="cf-required">*</span></label>
+                        <div class="cf-input-wrap cf-select-wrap">
+                            <i class="fas fa-layer-group cf-icon"></i>
+                            <select id="cf_service" name="service" required>
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="Enterprise Networking">Enterprise Networking</option>
+                                <option value="Cybersecurity Solutions">Cybersecurity Solutions</option>
+                                <option value="Cloud Solutions">Cloud Solutions</option>
+                                <option value="Server & Infrastructure">Server &amp; Infrastructure</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile App Development">Mobile App Development</option>
+                                <option value="IT Support Services">IT Support Services</option>
+                                <option value="Professional IT Training">Professional IT Training</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <i class="fas fa-chevron-down cf-select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <div class="cf-field">
+                        <label for="cf_message">Message / Requirement <span class="cf-required">*</span></label>
+                        <div class="cf-input-wrap cf-textarea-wrap">
+                            <i class="fas fa-comment-alt cf-icon cf-textarea-icon"></i>
+                            <textarea id="cf_message" name="message" rows="5" placeholder="Describe your requirements or challenges..." required maxlength="2000"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="schedule-btn" id="scheduleBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span id="scheduleBtnText">Schedule a Consultation</span>
+                        <span class="schedule-btn-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </button>
+
+                    <p class="cf-privacy">
+                        <i class="fas fa-lock"></i>
+                        Your information is kept strictly confidential and never shared.
+                    </p>
+
+                </form>
+
+                <!-- SUCCESS MESSAGE -->
+                <div id="formSuccessMsg" class="form-success" style="display:none;">
+                    <div class="form-success-inner">
+                        <div class="form-success-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="form-success-tag">REQUEST SUBMITTED</div>
+                        <h4>Consultation Request Sent</h4>
+                        <p>Thank you for reaching out. Our team will contact you within 24 hours to discuss your requirements.</p>
+                        <a href="index.html" class="schedule-btn success-back-btn">
+                            <i class="fas fa-arrow-left"></i> Back to Website
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- end consult-form-panel -->
+
+        </div><!-- end consult-layout -->
+    </main>
+
+    <!-- FOOTER -->
+    <section id="contact">
+        <div class="contact-grid">
+            <div class="contact-col">
+                <h3>Solutions</h3>
+                <p>
+                    Enterprise Networking, Cybersecurity, Cloud Infrastructure,
+                    Server Solutions, Web &amp; Mobile App Development, and IT Support Services for modern businesses.
+                </p>
+            </div>
+
+            <div class="contact-col">
+                <h3>IT Training and Education</h3>
+                <p>
+                    Professional IT training, networking courses, software development programmes, and hands-on industry-focused technical education.
+                </p>
+            </div>
+
+            <div class="contact-col">
+                <h3>Resources</h3>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#why-choose">Why Us</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#founder">Founder</a>
+            </div>
+
+            <div class="contact-col">
+                <h3>Contact</h3>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+94773793546">+94 77 379 3546</a>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:hello@sysclaude.com">hello@sysclaude.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>22, Ameeralipuram, Irakkamam 05, <br> Ampara, Sri Lanka</span>
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/sysclaude-solutions" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sysclaudesolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/94773793546" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Sysclaude Solutions. All Rights Reserved.</p>
+            <div></div>
+        </div>
+    </section>
+
+</body>
+
+</html>
