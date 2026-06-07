@@ -88,6 +88,14 @@
       "bullets": [
         "Hi"
       ]
+    },
+    {
+      "icon": "fas fa-cog",
+      "title": "sdfsdf",
+      "description": "sdfsdf",
+      "bullets": [
+        "sdfsdf"
+      ]
     }
   ]
 }
