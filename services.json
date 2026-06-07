@@ -82,11 +82,11 @@
       ]
     },
     {
-      "icon": "fas fa-cog",
+      "icon": "fa-computer",
       "title": "Hardware Repairing and Troubleshooting",
       "description": "Full hardware repairing services",
       "bullets": [
-        "Mother board"
+        "Hi"
       ]
     }
   ]
