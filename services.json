@@ -80,22 +80,6 @@
         "M365 Support",
         "Quick Resolution"
       ]
-    },
-    {
-      "icon": "fas fa-computer",
-      "title": "Hardware Repairing and Troubleshooting",
-      "description": "Full hardware repairing services",
-      "bullets": [
-        "Hi"
-      ]
-    },
-    {
-      "icon": "fas fa-cog",
-      "title": "sdfsdf",
-      "description": "sdfsdf",
-      "bullets": [
-        "sdfsdf"
-      ]
     }
   ]
 }
