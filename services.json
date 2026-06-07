@@ -72,11 +72,12 @@
     },
     {
       "icon": "fas fa-headset",
-      "title": "IT Support Servicess",
+      "title": "IT Support Services",
       "description": "Dedicated technical support team providing 24/7 assistance, troubleshooting, and proactive maintenance for uninterrupted business operations.",
       "bullets": [
         "24/7 Helpdesk",
         "System Monitoring",
+        "M365 Support",
         "Quick Resolution"
       ]
     }
