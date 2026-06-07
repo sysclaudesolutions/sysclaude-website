@@ -80,6 +80,14 @@
         "M365 Support",
         "Quick Resolution"
       ]
+    },
+    {
+      "icon": "fas fa-cog",
+      "title": "Hardware Repairing and Troubleshooting",
+      "description": "Full hardware repairing services",
+      "bullets": [
+        "Mother board"
+      ]
     }
   ]
 }
