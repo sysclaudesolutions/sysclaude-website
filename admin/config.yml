@@ -1,0 +1,54 @@
+# ============================================================
+#  Sveltia CMS configuration — Sysclaude Solutions
+#  Manage the website's services from a dashboard (no coding).
+# ============================================================
+
+backend:
+  name: github
+  repo: sysclaudesolutions/sysclaude-website   # owner/repository
+  branch: main
+  # base_url points to the secure login (OAuth) handler we deploy in Phase 3.
+  # Leave this placeholder for now — we replace it with the real URL in Phase 3.
+  base_url: https://REPLACE-IN-PHASE-3.workers.dev
+
+# Friendly links shown inside the dashboard
+site_url: https://www.sysclaude.com
+display_url: https://www.sysclaude.com
+
+# Where uploaded images would be stored (not used by services; kept for safety)
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "services"
+    label: "Services"
+    description: "Add, edit, remove, and reorder the services shown on the website."
+    files:
+      - name: "list"
+        label: "Services List"
+        file: "services.json"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            label_singular: "Service"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Icon (Font Awesome class)"
+                name: "icon"
+                widget: "string"
+                default: "fas fa-cog"
+                hint: "Example: fas fa-cloud — browse free icons at fontawesome.com/icons"
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+              - label: "Bullet Points"
+                name: "bullets"
+                widget: "list"
+                field:
+                  label: "Point"
+                  name: "point"
+                  widget: "string"
