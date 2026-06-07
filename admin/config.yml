@@ -9,7 +9,7 @@ backend:
   branch: main
   # base_url points to the secure login (OAuth) handler we deploy in Phase 3.
   # Leave this placeholder for now — we replace it with the real URL in Phase 3.
-  base_url: https://sveltia-cms-auth.sysclaude-solutions.workers.dev/
+  base_url: https://sveltia-cms-auth.sysclaude-solutions.workers.dev
 
 # Friendly links shown inside the dashboard
 site_url: https://www.sysclaude.com
