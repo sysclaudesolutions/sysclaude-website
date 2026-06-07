@@ -1,0 +1,84 @@
+{
+    "services": [
+        {
+            "icon": "fas fa-network-wired",
+            "title": "Network Design & Implementation",
+            "description": "Enterprise-grade network infrastructure with LAN/WAN solutions, structured cabling, and high-performance systems designed for scalability and reliability.",
+            "bullets": [
+                "Network Architecture",
+                "LAN/WAN Setup",
+                "Network Optimization"
+            ]
+        },
+        {
+            "icon": "fas fa-shield-alt",
+            "title": "Cybersecurity Solutions",
+            "description": "Comprehensive security measures protecting your business from evolving threats with advanced firewalls, intrusion detection, and endpoint protection.",
+            "bullets": [
+                "Security Audits",
+                "Threat Protection",
+                "Compliance Management"
+            ]
+        },
+        {
+            "icon": "fas fa-cloud",
+            "title": "Cloud Solutions",
+            "description": "AWS and Azure cloud services providing flexible, secure, and scalable infrastructure for modern businesses of all sizes and industries.",
+            "bullets": [
+                "Cloud Migration",
+                "Cloud Management",
+                "Data Backup"
+            ]
+        },
+        {
+            "icon": "fas fa-server",
+            "title": "Server & Infrastructure",
+            "description": "Reliable server solutions and IT infrastructure management ensuring high availability, performance, and business continuity around the clock.",
+            "bullets": [
+                "Server Setup",
+                "Infrastructure Management",
+                "System Administration"
+            ]
+        },
+        {
+            "icon": "fas fa-code",
+            "title": "Web Development",
+            "description": "Professional, high-performance websites and web applications for individuals, startups, and enterprises — built with modern frameworks, responsive design, and SEO best practices.",
+            "bullets": [
+                "Corporate Websites",
+                "Web Applications",
+                "E-Commerce Solutions"
+            ]
+        },
+        {
+            "icon": "fas fa-mobile-alt",
+            "title": "Mobile App Development",
+            "description": "Custom Android and iOS mobile applications for individuals and enterprises — from concept to deployment with intuitive UX, robust back-end integration, and ongoing support.",
+            "bullets": [
+                "Android & iOS Apps",
+                "Enterprise Mobility",
+                "App Maintenance"
+            ]
+        },
+        {
+            "icon": "fas fa-laptop-code",
+            "title": "IT Training & Academy",
+            "description": "Professional IT training programs with hands-on learning, industry certifications, and real-world implementation for comprehensive skill development.",
+            "bullets": [
+                "Networking Courses",
+                "Cybersecurity Training",
+                "Cloud Certifications"
+            ]
+        },
+        {
+            "icon": "fas fa-headset",
+            "title": "IT Support Services",
+            "description": "Dedicated technical support team providing 24/7 assistance, troubleshooting, and proactive maintenance for uninterrupted business operations.",
+            "bullets": [
+                "24/7 Helpdesk",
+                "System Monitoring",
+                "Quick Resolution"
+            ]
+        }
+    ]
+}
