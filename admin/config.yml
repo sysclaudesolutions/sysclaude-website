@@ -15,7 +15,7 @@ backend:
 site_url: https://www.sysclaude.com
 display_url: https://www.sysclaude.com
 
-# Where uploaded images would be stored (not used by services; kept for safety)
+# Where uploaded images are stored. Service card images live in /uploads.
 media_folder: "uploads"
 public_folder: "/uploads"
 
@@ -39,6 +39,11 @@ collections:
                 widget: "string"
                 default: "fas fa-cog"
                 hint: "Example: fas fa-cloud — browse free icons at fontawesome.com/icons"
+              - label: "Image"
+                name: "image"
+                widget: "image"
+                required: false
+                hint: "Banner image shown at the top of the service card. Recommended ~800×400px (2:1). Leave empty to show only the icon."
               - label: "Title"
                 name: "title"
                 widget: "string"

@@ -349,6 +349,23 @@
             const card = document.createElement("div");
             card.className = "service-card";
 
+            // Optional image banner at the top of the card. Shown only when the
+            // service has an "image" in services.json (managed from the dashboard).
+            // If it is empty, the card falls back to the icon-only design.
+            if (service.image) {
+                const imgWrap = document.createElement("div");
+                imgWrap.className = "service-image";
+                const img = document.createElement("img");
+                img.src = service.image;
+                img.alt = service.title || "";
+                img.loading = "lazy";
+                // If the image path is broken, hide the banner gracefully.
+                img.onerror = function () { imgWrap.style.display = "none"; };
+                imgWrap.appendChild(img);
+                card.appendChild(imgWrap);
+                card.classList.add("has-image");
+            }
+
             const iconWrap = document.createElement("div");
             iconWrap.className = "service-icon";
             const icon = document.createElement("i");

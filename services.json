@@ -2,6 +2,7 @@
   "services": [
     {
       "icon": "fas fa-network-wired",
+      "image": "/uploads/service-network.svg",
       "title": "Network Design & Implementation",
       "description": "Enterprise-grade network infrastructure with LAN/WAN solutions, structured cabling, and high-performance systems designed for scalability and reliability.",
       "bullets": [
@@ -12,6 +13,7 @@
     },
     {
       "icon": "fas fa-shield-alt",
+      "image": "/uploads/service-cybersecurity.svg",
       "title": "Cybersecurity Solutions",
       "description": "Comprehensive security measures protecting your business from evolving threats with advanced firewalls, intrusion detection, and endpoint protection.",
       "bullets": [
@@ -22,6 +24,7 @@
     },
     {
       "icon": "fas fa-cloud",
+      "image": "/uploads/service-cloud.svg",
       "title": "Cloud Solutions",
       "description": "AWS and Azure cloud services providing flexible, secure, and scalable infrastructure for modern businesses of all sizes and industries.",
       "bullets": [
@@ -32,6 +35,7 @@
     },
     {
       "icon": "fas fa-server",
+      "image": "/uploads/service-server.svg",
       "title": "Server & Infrastructure",
       "description": "Reliable server solutions and IT infrastructure management ensuring high availability, performance, and business continuity around the clock.",
       "bullets": [
@@ -42,6 +46,7 @@
     },
     {
       "icon": "fas fa-code",
+      "image": "/uploads/service-web.svg",
       "title": "Web Development",
       "description": "Professional, high-performance websites and web applications for individuals, startups, and enterprises — built with modern frameworks, responsive design, and SEO best practices.",
       "bullets": [
@@ -52,6 +57,7 @@
     },
     {
       "icon": "fas fa-mobile-alt",
+      "image": "/uploads/service-mobile.svg",
       "title": "Mobile App Development",
       "description": "Custom Android and iOS mobile applications for individuals and enterprises — from concept to deployment with intuitive UX, robust back-end integration, and ongoing support.",
       "bullets": [
@@ -62,6 +68,7 @@
     },
     {
       "icon": "fas fa-laptop-code",
+      "image": "/uploads/service-training.svg",
       "title": "IT Training & Academy",
       "description": "Professional IT training programs with hands-on learning, industry certifications, and real-world implementation for comprehensive skill development.",
       "bullets": [
@@ -72,6 +79,7 @@
     },
     {
       "icon": "fas fa-headset",
+      "image": "/uploads/service-support.svg",
       "title": "IT Support Services",
       "description": "Dedicated technical support team providing 24/7 assistance, troubleshooting, and proactive maintenance for uninterrupted business operations.",
       "bullets": [
